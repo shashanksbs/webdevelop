@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci Sequence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 30px;
+            color: rgb(255, 255, 255);
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+            color: rgb(255, 255, 255);
+        }
+
+        input[type="number"] {
+            padding: 5px 10px;
+            font-size: 16px;
+            height: 30px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ffae00;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            background-color: #3e8e41;
+        }
+
+        #fibonacciResult {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #fibonacciResult p {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fibonacci Sequence Generator</h1>
+    <p>Enter the value of n:</p>
+    <input type="number" id="inputN" placeholder="Enter number">
+    <button onclick="generateFibonacci()">Generate Sequence</button>
+    <div id="fibonacciResult"></div>
+
+    <script>
+        function generateFibonacci() {
+            const n = parseInt(document.getElementById('inputN').value);
+
+            if (isNaN(n) || n < 1) {
+                alert('Please enter a valid positive integer for n.');
+                return;
+            }
+
+            const fibonacciArray = [0, 1];
+
+            for (let i = 2; i < n; i++) {
+                const nextFibonacci = fibonacciArray[i - 1] + fibonacciArray[i - 2];
+                fibonacciArray.push(nextFibonacci);
+            }
+
+            const resultContainer = document.getElementById('fibonacciResult');
+            resultContainer.innerHTML = '<p>Fibonacci Sequence:</p><p>' + fibonacciArray.join(', ') + '</p>';
+        }
+    </script>
+</body>
+</html>\

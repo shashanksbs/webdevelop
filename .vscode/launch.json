@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "request": "attach",
+            "type": "chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Attach to msedges",
+            "port": 9222,
+            "request": "attach",
+            "type": "msedge",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Launch msedge against localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "msedge",
+            "name": "http://127.0.0.1:3000/html/calculater.html",
+            "request": "launch",
+            "url": "http://127.0.0.1:3000/html/calculater.html"
+        }
+    ]
+}

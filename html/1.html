@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIML</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+        }
+        header {
+            background-color: #ffa200;
+            color: #000000;
+            padding: 35px;
+            text-align: center;
+        }
+        .logo {
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .d1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2px;
+        }
+        .input {
+            width: 250px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px 0 0 10px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #00ff73;
+            color: #000000;
+            border-radius: 0 10px 10px 0;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ffffff;
+        }
+        .profile-card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        h3,h4{
+            color: azure;
+            text-align: center;
+        }
+        nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+}
+nav ul li a:hover{
+	color: #ffa200;
+	transform: .4s;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">AIML</div>
+    </header>
+    <div>
+        <nav>
+            <ul>
+            <li><a href="aiml.html">Home</a></li>
+            <li><a href="#">Notification</a></li>
+            <li><a href="#">Feedback</a></li>
+            </ul>
+        </nav>
+    </div>
+    <br><br><br>
+    <h3>Search Name or Registration Number</h3>
+    <div class="d1">
+        <form onsubmit="searchProfile(); return false;">
+            <input class="input" type="text" id="searchInput" placeholder="Drop your Search...">
+            <input class="button" type="submit" value="GO">
+        </form>
+    </div>
+    <div id="search-results">
+        
+    </div>
+    <script>
+        const profiles = [
+            {
+                name: 'ANKITH KR',
+                usn: '4AI21AI008',
+                age: '13/04/2003',
+                skills: 'JavaScript, HTML, CSS',
+                certifications: 'Certified Web Developer, Front-end Developer Certification',
+                image: '"C:\Users\SHASHANK B S\OneDrive\Documents\VS_SBS\html\IMG-20220308-WA0000.jpg"',
+            },
+            {
+                name: 'CHETHAN SM',
+                usn: '4AI21AI013',
+                age: '00/00/2003',
+                skills: 'Python, Data Analysis',
+                certifications: 'Certified Data Analyst, Python for Data Science',
+                image: 'jane.jpg',
+            },
+        ];
+    
+        function searchProfile() {
+            const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+    
+            const foundProfile = profiles.find(profile => 
+                profile.name.toLowerCase() === searchInput || profile.usn.toLowerCase() === searchInput);
+    
+            const searchResults = document.getElementById('search-results');
+    
+            searchResults.innerHTML = '';
+    
+            if (foundProfile) {
+                const card = document.createElement('div');
+                card.className = 'profile-card';
+    
+                // Add the profile photo to the card
+                const img = document.createElement('img');
+                img.src = foundProfile.image; 
+                img.alt = `${foundProfile.name}'s Profile Photo`; 
+                img.className = 'profile-photo';
+                img.style.borderRadius = '80px';
+                img.style.maxWidth = '150px';
+                card.innerHTML = `
+                    ${img.outerHTML}
+                    <h2>${foundProfile.name}</h2>
+                    <p>USN: ${foundProfile.usn}</p>
+                    <p>Date of Birth: ${foundProfile.age}</p>
+                    <p>Skills: ${foundProfile.skills}</p>
+                    <p>Certifications in Courses: ${foundProfile.certifications}</p>
+                `;
+    
+                searchResults.appendChild(card);
+            } else {
+                searchResults.innerHTML = '<p>Profile not found</p>';
+            }
+        }
+    </script>
+    
+</body>
+<h4>We are currently in the testing phase of developing the department's achievement website</h4>
+</html>

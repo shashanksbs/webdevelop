@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Star Patterns</title>
+</head>
+<body>
+  <div>
+    <label for="pattern-select">Select Pattern:</label>
+    <select id="pattern-select">
+      <option value="square">Square</option>
+      <option value="hollowSquare">Hollow Square</option>
+      <option value="rightAngleTriangle">Right-Angled Triangle</option>
+      <option value="leftTriangle">Left Triangle</option>
+      <option value="downloadLeftTriangle">Download Left Triangle</option>
+      <option value="hollowTriangle">Hollow Triangle</option>
+        <option value="pyramid">Pyramid</option>
+        <option value="hollowPyramid">Hollow Pyramid</option>
+        <option value="inversePyramid">Inverse Pyramid</option>
+        <option value="hourglass">Hourglass</option>
+         <option value="diamond">Diamond</option>
+        <option value="leftPascal">Left Pascal</option>
+         <option value="rightPascal">Right Pascal</option>
+         <option value="hollowDiamond">Hollow Diamond</option>
+        <option value="heart">Heart</option>
+    </select>
+    <input type="number" id="row-input" placeholder="Enter number of rows">
+    <button onclick="generatePattern()">Generate Pattern</button>
+  </div>
+  <div id="pattern-container"></div>
+
+  <script>
+    function generatePattern() {
+      const patternType = document.getElementById('pattern-select').value;
+      const numberOfRows = parseInt(document.getElementById('row-input').value);
+      const patternContainer = document.getElementById('pattern-container');
+      patternContainer.innerHTML = ''; // Clear previous pattern
+
+      let pattern = '';
+
+      switch (patternType) {
+        case 'square':
+          for (let i = 0; i < numberOfRows; i++) {
+            pattern += '* '.repeat(numberOfRows) + '<br>';
+          }
+          break;
+
+        case 'hollowSquare':
+          for (let i = 0; i < numberOfRows; i++) {
+            if (i === 0 || i === numberOfRows - 1) {
+              pattern += '* '.repeat(numberOfRows) + '<br>';
+            } else {
+              pattern += '* ' + '&nbsp;'.repeat(2 * (numberOfRows - 2)) + '* <br>';
+            }
+          }
+          break;
+
+        case 'rightAngleTriangle':
+          for (let i = 1; i <= numberOfRows; i++) {
+            pattern += '* '.repeat(i) + '<br>';
+          }
+          break;
+
+        case 'leftTriangle':
+          for (let i = 0; i < numberOfRows; i++) {
+            pattern += ' '.repeat(numberOfRows - i - 1) + '* '.repeat(i + 1) + '<br>';
+          }
+          break;
+
+        case 'downloadLeftTriangle':
+          for (let i = numberOfRows; i >= 1; i--) {
+            pattern += '* '.repeat(i) + '<br>';
+          }
+          break;
+          case 'hollowTriangle':
+          // Pattern logic
+          for (let i = 1; i <= numberOfRows; i++) {
+            pattern += ' '.repeat(numberOfRows - i) + '*';
+            if (i > 1 && i < numberOfRows) {
+              pattern += '&nbsp;'.repeat(2 * (i - 1) - 1) + '*';
+            }
+            pattern += '<br>';
+          }
+          break;
+
+        case 'pyramid':
+          // Pattern logic
+          for (let i = 1; i <= numberOfRows; i++) {
+            pattern += ' '.repeat(numberOfRows - i) + '* '.repeat(i) + '<br>';
+          }
+          break;
+
+        case 'hollowPyramid':
+          // Pattern logic
+          for (let i = 1; i <= numberOfRows; i++) {
+            if (i === 1 || i === numberOfRows) {
+              pattern += '* '.repeat(i) + '<br>';
+            } else {
+              pattern += '* ' + '&nbsp;'.repeat(2 * (i - 2)) + '* <br>';
+            }
+          }
+          break;
+
+        case 'inversePyramid':
+          // Pattern logic
+          for (let i = numberOfRows; i >= 1; i--) {
+            pattern += ' '.repeat(numberOfRows - i) + '* '.repeat(i) + '<br>';
+          }
+          break;
+
+        case 'hourglass':
+          // Pattern logic
+          for (let i = numberOfRows; i >= 1; i--) {
+            pattern += ' '.repeat(numberOfRows - i) + '* '.repeat(i) + '<br>';
+          }
+          for (let i = 2; i <= numberOfRows; i++) {
+            pattern += ' '.repeat(numberOfRows - i) + '* '.repeat(i) + '<br>';
+          }
+          break;
+
+        case 'diamond':
+          // Pattern logic
+          for (let i = 1; i <= numberOfRows; i++) {
+            pattern += ' '.repeat(numberOfRows - i) + '* '.repeat(i) + '<br>';
+          }
+          for (let i = numberOfRows - 1; i >= 1; i--) {
+            pattern += ' '.repeat(numberOfRows - i) + '* '.repeat(i) + '<br>';
+          }
+          break;
+        
+        case 'leftPascal':
+          // Pattern logic
+          for (let i = 0; i < numberOfRows; i++) {
+                for (let j = 0; j <= i; j++) {
+                pattern += '*';
+             }
+                pattern += '<br>';
+                }
+            break;
+
+        case 'rightPascal':
+          // Pattern logic
+                for (let i = 0; i < numberOfRows; i++) {
+                pattern = '&nbsp;'.repeat(numberOfRows - i - 1) + pattern;
+                for (let j = 0; j <= i; j++) {
+                pattern += '*';
+                }
+                    pattern += '<br>';
+                }
+                break;
+
+        case 'hollowDiamond':
+          // Pattern logic
+          for (let i = 0; i < numberOfRows; i++) {
+                if (i === 0 || i === numberOfRows - 1) {
+                pattern += ' '.repeat(numberOfRows - i - 1) + '* '.repeat(i + 1) + '<br>';
+                } else {
+                pattern += ' '.repeat(numberOfRows - i - 1) + '* ' + '&nbsp;'.repeat(2 * i - 1) + '* ' + '<br>';
+                }
+                }
+                for (let i = numberOfRows - 2; i >= 0; i--) {
+                 if (i === 0 || i === numberOfRows - 1) {
+                pattern += ' '.repeat(numberOfRows - i - 1) + '* '.repeat(i + 1) + '<br>';
+                } else {
+                 pattern += ' '.repeat(numberOfRows - i - 1) + '* ' + '&nbsp;'.repeat(2 * i - 1) + '* ' + '<br>';
+                }
+                }
+          break;
+
+        case 'heart':
+          // Pattern logic
+          for (let i = 0; i <= numberOfRows; i++) {
+             let spaces = Math.abs(numberOfRows / 2 - i);
+             pattern += ' '.repeat(spaces);
+             if (i === 0 || i === numberOfRows) {
+              pattern += '* '.repeat(3);
+            } else if (i <= numberOfRows / 2) {
+            pattern += '* ' + ' '.repeat(i - 1) + ' '.repeat(numberOfRows - i * 2 - 1) + '* ' + '<br>';
+            } else {
+            pattern += '* ' + ' '.repeat(numberOfRows - i - 1) + ' '.repeat((i - numberOfRows / 2) * 2 - 1) + '* ' + '<br>';
+        }
+    }
+          break;
+
+        default:
+          pattern = 'Invalid pattern type';
+      }
+
+      patternContainer.innerHTML = pattern;
+    }
+  </script>
+</body>
+</html>
