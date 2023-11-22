@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patterns Display</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div>
+      <p>
+        1)Square Star Pattern
+        <button class="glow-on-hover" target="right" id="my1">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        2)Hollow Square Pattern
+        <button class="glow-on-hover" target="right" id="my2">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        3)Right triangle star pattern
+        <button class="glow-on-hover" target="right" id="my3">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        4)Left triangle star pattern
+        <button class="glow-on-hover" target="right" id="my4">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        5) Downward Triangle Star Pattern
+
+        <button class="glow-on-hover" target="right" id="my5">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        6)Hollow triangle pattern
+        <button class="glow-on-hover" target="right" id="my6">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        7)Pyramid star Pattern
+        <button class="glow-on-hover" target="right" id="my7">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        8)Reversed pyramid star pattern<button
+          class="glow-on-hover"
+          target="right"
+          id="my8">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        9)Hollow pyramid star Pattern
+        <button class="glow-on-hover" target="right" id="my9">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        10)Diamond Pattern
+        <button class="glow-on-hover" target="right" id="my10">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        11)Hollow diamond pattern
+        <button class="glow-on-hover" target="right" id="my11">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        12)Hourglass Star Pattern
+        <button class="glow-on-hover" target="right" id="my12">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        13)Right Pascal Star Pattern
+        <button class="glow-on-hover" target="right" id="my13">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        14)Left Pascal Star Pattern
+        <button class="glow-on-hover" target="right" id="my14">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <div>
+      <p>
+        15)Heart Star Pattern
+        <button class="glow-on-hover" target="right" id="my15">
+          Click Here
+        </button>
+      </p>
+    </div>
+    <script>
+      function updateFrameBOutput(output, name) {
+        const frameB = parent.frames["frameB"];
+        const outputElement = frameB.document.getElementById("output");
+        const nameElement = frameB.document.getElementById("outputName");
+
+        outputElement.textContent = output;
+        nameElement.textContent = name;
+      }
+      document.getElementById("my1").addEventListener("click", function () {
+        let n = 5; // row or column count
+        let string = "";
+
+        for (let i = 0; i < n; i++) {
+          // external loop
+          for (let j = 0; j < n; j++) {
+            // internal loop
+            string += "*";
+          }
+          // newline after each row
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Square Star Pattern is:");
+      });
+      document.getElementById("my2").addEventListener("click", function () {
+        let n = 5; // row or column count
+        // defining an empty string
+        let string = "";
+
+        for (let i = 0; i < n; i++) {
+          // external loop
+          for (let j = 0; j < n; j++) {
+            // internal loop
+            if (i === 0 || i === n - 1) {
+              string += "*";
+            } else {
+              if (j === 0 || j === n - 1) {
+                string += "*";
+              } else {
+                string += " ";
+              }
+            }
+          }
+          // newline after each row
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The Hollow Square Pattern is:");
+      });
+
+      document.getElementById("my3").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        for (let i = 1; i <= n; i++) {
+          // printing spaces
+          for (let j = 0; j < n - i; j++) {
+            string += " ";
+          }
+          // printing star
+          for (let k = 0; k < i; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The Right triangle star pattern is:");
+      });
+      document.getElementById("my4").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        for (let i = 1; i <= n; i++) {
+          for (let j = 0; j < i; j++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Left triangle star pattern is:");
+      });
+      document.getElementById("my5").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        for (let i = 0; i < n; i++) {
+          // printing star
+          for (let k = 0; k < n - i; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Downward Triangle Star Pattern is:");
+      });
+      document.getElementById("my6").addEventListener("click", function () {
+        let n = 6;
+        let string = "";
+
+        for (let i = 1; i <= n; i++) {
+          // printing star
+          for (let j = 0; j < i; j++) {
+            if (i === n) {
+              string += "*";
+            } else {
+              if (j == 0 || j == i - 1) {
+                string += "*";
+              } else {
+                string += " ";
+              }
+            }
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Hollow triangle pattern is:");
+      });
+      document.getElementById("my7").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        // External loop
+        for (let i = 1; i <= n; i++) {
+          // printing spaces
+          for (let j = 1; j <= n - i; j++) {
+            string += " ";
+          }
+          // printing star
+          for (let k = 0; k < 2 * i - 1; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Pyramid star Pattern is:");
+      });
+      document.getElementById("my8").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        // External loop
+        for (let i = 0; i < n; i++) {
+          // printing spaces
+          for (let j = 0; j < i; j++) {
+            string += " ";
+          }
+          // printing star
+          for (let k = 0; k < 2 * (n - i) - 1; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Reversed pyramid star pattern is:");
+      });
+      document.getElementById("my9").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+
+        // External loop
+        for (let i = 1; i <= n; i++) {
+          // printing spaces
+          for (let j = 1; j <= n - i; j++) {
+            string += " ";
+          }
+          // printing star
+          for (let k = 0; k < 2 * i - 1; k++) {
+            if (i === 1 || i === n) {
+              string += "*";
+            } else {
+              if (k === 0 || k === 2 * i - 2) {
+                string += "*";
+              } else {
+                string += " ";
+              }
+            }
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Hollow pyramid star Pattern is:");
+      });
+      document.getElementById("my10").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        // Upside pyramid
+        for (let i = 1; i <= n; i++) {
+          // printing spaces
+          for (let j = n; j > i; j--) {
+            string += " ";
+          }
+          // printing star
+          for (let k = 0; k < i * 2 - 1; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+        // downside pyramid
+        for (let i = 1; i <= n - 1; i++) {
+          // printing spaces
+          for (let j = 0; j < i; j++) {
+            string += " ";
+          }
+          // printing star
+          for (let k = (n - i) * 2 - 1; k > 0; k--) {
+            string += "*";
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The Diamond Pattern is:");
+      });
+      document.getElementById("my11").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        // Upside pyramid
+        // upside diamond
+        for (let i = 1; i <= n; i++) {
+          // printing spaces
+          for (let j = n; j > i; j--) {
+            string += " ";
+          }
+          // printing star
+          for (let k = 0; k < i * 2 - 1; k++) {
+            if (k === 0 || k === 2 * i - 2) {
+              string += "*";
+            } else {
+              string += " ";
+            }
+          }
+          string += "\n";
+        }
+        // downside diamond
+        for (let i = 1; i <= n - 1; i++) {
+          // printing spaces
+          for (let j = 0; j < i; j++) {
+            string += " ";
+          }
+          // printing star
+          for (let k = (n - i) * 2 - 1; k >= 1; k--) {
+            if (k === 1 || k === (n - i) * 2 - 1) {
+              string += "*";
+            } else {
+              string += " ";
+            }
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Hollow diamond pattern is:");
+      });
+      document.getElementById("my12").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        // Reversed pyramid pattern
+        for (let i = 0; i < n; i++) {
+          // printing spaces
+          for (let j = 0; j < i; j++) {
+            string += " ";
+          }
+          // printing star
+          for (let k = 0; k < (n - i) * 2 - 1; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+        // pyramid pattern
+        for (let i = 2; i <= n; i++) {
+          // printing spaces
+          for (let j = n; j > i; j--) {
+            string += " ";
+          }
+          // printing star
+          for (let k = 0; k < i * 2 - 1; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+        updateFrameBOutput(string, "The  Hourglass Star Pattern is:");
+      });
+      document.getElementById("my13").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        for (let i = 1; i <= n; i++) {
+          for (let j = 0; j < i; j++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+        for (let i = 1; i <= n - 1; i++) {
+          for (let j = 0; j < n - i; j++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The  Right Pascal Star Pattern is:");
+      });
+      document.getElementById("my14").addEventListener("click", function () {
+        let n = 5;
+        let string = "";
+        for (let i = 1; i <= n; i++) {
+          for (let j = 0; j < n - i; j++) {
+            string += " ";
+          }
+          for (let k = 0; k < i; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+        for (let i = 1; i <= n - 1; i++) {
+          for (let j = 0; j < i; j++) {
+            string += " ";
+          }
+          for (let k = 0; k < n - i; k++) {
+            string += "*";
+          }
+          string += "\n";
+        }
+
+        updateFrameBOutput(string, "The Left Pascal Star Pattern is:");
+      });
+      document.getElementById("my15").addEventListener("click", function () {
+        var n = 6;
+        var str = "";
+        for (let i = n / 2; i < n; i += 2) {
+          // print first spaces
+          for (let j = 1; j < n - i; j += 2) {
+            str += " ";
+          }
+          // print first stars
+          for (let j = 1; j < i + 1; j++) {
+            str += "*";
+          }
+          // print second spaces
+          for (let j = 1; j < n - i + 1; j++) {
+            str += " ";
+          }
+          // print second stars
+          for (let j = 1; j < i + 1; j++) {
+            str += "*";
+          }
+          str += "\n";
+        }
+        // lower part
+        // inverted pyramid
+        for (let i = n; i > 0; i--) {
+          for (let j = 0; j < n - i; j++) {
+            str += " ";
+          }
+          for (let j = 1; j < i * 2; j++) {
+            str += "*";
+          }
+          str += "\n";
+        }
+
+        updateFrameBOutput(str, "The Heart Star Pattern is:");
+      });
+    </script>
+  </body>
+</html>
